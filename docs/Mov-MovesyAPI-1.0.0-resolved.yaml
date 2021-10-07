@@ -1,0 +1,585 @@
+---
+openapi: 3.0.0
+info:
+  title: Swagger Movesy
+  description: This is a Swagger API documentation for our project called Movesy.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/Mov/MovesyAPI/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: /
+- name: login
+- name: register
+- name: user
+  description: Every data about the users
+- name: package
+  description: Access to movesy packages
+- name: review
+  description: Data about reviews
+- name: quote
+  description: Operations about quotes
+paths:
+  /:
+    get:
+      tags:
+      - /
+      summary: Angular page
+      operationId: welcome
+      responses:
+        "200":
+          description: HTML Angular page - All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /login:
+    post:
+      tags:
+      - login
+      summary: Login
+      operationId: login
+      requestBody:
+        $ref: '#/components/requestBodies/User'
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /register:
+    post:
+      tags:
+      - register
+      summary: register
+      operationId: register
+      requestBody:
+        $ref: '#/components/requestBodies/User'
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /user/edit/{userID}:
+    put:
+      tags:
+      - user
+      summary: Edit the user
+      operationId: editUser
+      parameters:
+      - name: userID
+        in: path
+        description: userID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/User'
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /user/delete/{userID}:
+    delete:
+      tags:
+      - user
+      summary: Delete the user
+      operationId: deleteUser
+      parameters:
+      - name: userID
+        in: path
+        description: userID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/all:
+    get:
+      tags:
+      - package
+      summary: Lists all the packages
+      operationId: packageAll
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/PackageArray'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/{packageID}:
+    get:
+      tags:
+      - package
+      summary: Sends back the package that has the specified ID
+      operationId: getPackage
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/Package'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/edit/{packageID}:
+    put:
+      tags:
+      - package
+      summary: Edits the package
+      operationId: editPackage
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Package'
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/delete/{packageID}:
+    delete:
+      tags:
+      - package
+      summary: Deletes the package
+      operationId: deletePackage
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/user/{userID}:
+    get:
+      tags:
+      - package
+      summary: Lists all the packages from that user
+      operationId: userPackages
+      parameters:
+      - name: userID
+        in: path
+        description: userID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/PackageArray'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /package/transporter/{transporterID}:
+    get:
+      tags:
+      - package
+      summary: Lists all the packages that will be transported by that user
+      operationId: transporterPackages
+      parameters:
+      - name: transporterID
+        in: path
+        description: transporterID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/PackageArray'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /review/{packageID}:
+    get:
+      tags:
+      - review
+      summary: Sends back that one review about that package
+      operationId: packageReview
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/Review'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /review/create:
+    post:
+      tags:
+      - review
+      summary: Creates a review
+      operationId: createReview
+      requestBody:
+        $ref: '#/components/requestBodies/Review'
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /review/edit/{reviewID}:
+    put:
+      tags:
+      - review
+      summary: Edits a specific review
+      operationId: editReview
+      parameters:
+      - name: reviewID
+        in: path
+        description: reviewID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Review'
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /review/delete/{reviewID}:
+    delete:
+      tags:
+      - review
+      summary: Deletes a review by its id
+      operationId: deleteReview
+      parameters:
+      - name: reviewID
+        in: path
+        description: reviewID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /review/transporter/{transporterID}:
+    get:
+      tags:
+      - review
+      summary: Lists all the reviews about this transported
+      operationId: transporterReviews
+      parameters:
+      - name: transporterID
+        in: path
+        description: transporterID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/ReviewArray'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /quote/{packageID}:
+    get:
+      tags:
+      - quote
+      summary: Lists all the quotes
+      operationId: packageQuotes
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          $ref: '#/components/requestBodies/QuoteArray'
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /quote/create/{packageID}:
+    post:
+      tags:
+      - quote
+      summary: Creates a quote for that package
+      operationId: createQuote
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /quote/edit/{packageID}:
+    put:
+      tags:
+      - quote
+      summary: Edits a quote for that package
+      operationId: editQuote
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /quote/accept/{packageID}:
+    post:
+      tags:
+      - quote
+      summary: Accepts a quote for that package
+      operationId: acceptQuote
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+  /quote/reject/{packageID}:
+    delete:
+      tags:
+      - quote
+      summary: Rejects a quote for that package
+      operationId: rejectQuote
+      parameters:
+      - name: packageID
+        in: path
+        description: packageID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: All is good
+        "404":
+          description: Not found
+        "405":
+          description: Invalid input
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        telephone:
+          type: string
+    Package:
+      type: object
+      properties:
+        id:
+          type: string
+        userID:
+          type: string
+        transporterID:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        deadline:
+          type: string
+        price:
+          type: integer
+          format: int64
+        weight:
+          type: number
+        height:
+          type: number
+        width:
+          type: number
+        depth:
+          type: number
+        status:
+          type: string
+    Review:
+      type: object
+      properties:
+        id:
+          type: string
+        transporterID:
+          type: string
+        packageID:
+          type: string
+        time:
+          type: string
+        rating:
+          type: number
+        description:
+          type: string
+        CustomerUsername:
+          type: string
+    Quote:
+      type: object
+      properties:
+        id:
+          type: string
+        transporterID:
+          type: string
+        packageID:
+          type: string
+        price:
+          type: integer
+          format: int64
+  requestBodies:
+    User:
+      description: User object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+      required: true
+    Package:
+      description: Package object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Package'
+      required: true
+    PackageArray:
+      description: List of package object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Package'
+      required: true
+    Review:
+      description: Review object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Review'
+      required: true
+    ReviewArray:
+      description: List of review object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Review'
+      required: true
+    Quote:
+      description: Review object
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Quote'
+      required: true
+    QuoteArray:
+      description: List of review object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Quote'
+      required: true
