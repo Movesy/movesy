@@ -8,7 +8,7 @@ ENDPOINT NAME                       - METHOD TYPE   - PERMISSION              - 
 /package
     /all                            - GET           - TRANSPORTER             -
     /{packageID}                    - GET           - TRANSPORTER/USER        - packageID
-    /edit/{packageID}               - POST          - USER                    - packageID, (...)
+    /edit/{packageID}               - PU            - USER                    - packageID, (...)
     /delete/{packageID}             - DELETE        - USER
     /user/{userID}                  - GET           - USER                    - userID
     /transporter/{userID}           - GET           - TRANSPORTER             - userID
