@@ -8,7 +8,7 @@ ENDPOINT NAME                       - METHOD TYPE   - PERMISSION              - 
 /package
     /all                            - GET           - TRANSPORTER             -
     /{packageID}                    - GET           - TRANSPORTER/USER        - packageID
-    /edit/{packageID}               - PU            - USER                    - packageID, (...)
+    /edit/{packageID}               - PUT           - USER                    - packageID, (...)
     /delete/{packageID}             - DELETE        - USER
     /user/{userID}                  - GET           - USER                    - userID
     /transporter/{userID}           - GET           - TRANSPORTER             - userID
@@ -18,7 +18,8 @@ ENDPOINT NAME                       - METHOD TYPE   - PERMISSION              - 
     /edit/{reviewID}                - PUT           - USER                    - reviewID, (...)
     /delete/{reviewID}              - DELETE        - USER                    - reviewID
     /transporter/{transporterID}    - GET           - USER/TRANSPORTER        - transporterID
-/quotes
+/quote
+    /{packageID}                    - GET           - USER                    -
     /create{packageID}              - POST          - TRANSPORTER             - packageID, price
     /edit{quoteID}                  - PUT           - TRANSPORTER             - quoteID, price
     /accept/{quoteID}               - POST          - USER                    - quoteID
