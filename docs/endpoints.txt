@@ -1,0 +1,25 @@
+ENDPOINT NAME                       - METHOD TYPE   - PERMISSION              - REQUIRED PARAMETERS
+/                                   - GET           - NONE
+    /register                       - POST          - NONE                    - username, email, telephone, password
+    /login                          - POST          - NONE                    - username, password
+/user
+    /edit/{userID}                  - PUT           - USER                    - userID, userane, email, tphone, password
+    /delete/{userID}                - DELETE        - ADMIN ONLY              - userID
+/package
+    /all                            - GET           - TRANSPORTER             -
+    /{packageID}                    - GET           - TRANSPORTER/USER        - packageID
+    /edit/{packageID}               - POST          - USER                    - packageID, (...)
+    /delete/{packageID}             - DELETE        - USER
+    /user/{userID}                  - GET           - USER                    - userID
+    /transporter/{userID}           - GET           - TRANSPORTER             - userID
+/review
+    /{packageID}                    - GET           - USER/TRANSPORTER        - packageID
+    /create                         - POST          - USER                    - rating, time, desc, trp.id, customerUsername
+    /edit/{reviewID}                - PUT           - USER                    - reviewID, (...)
+    /delete/{reviewID}              - DELETE        - USER                    - reviewID
+    /transporter/{transporterID}    - GET           - USER/TRANSPORTER        - transporterID
+/quotes
+    /create{packageID}              - POST          - TRANSPORTER             - packageID, price
+    /edit{quoteID}                  - PUT           - TRANSPORTER             - quoteID, price
+    /accept/{quoteID}               - POST          - USER                    - quoteID
+    /reject/{quoteID}               - DELETE        - USER                    - quoteID
