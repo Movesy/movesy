@@ -10,7 +10,7 @@ Létre is hoztunk a projektnek egy github organisationt, amiben létrehoztunk 4 
 
 Megterveztük az app adatmodelljét, amihez ismét a draw.io-t használtuk. Itt kicsi problémát jelentett, hogy a vonalakat nehéz volt mozgatni, ami meghosszabbította a munkát. Ezen túl nehézséget okozott eldöntenünk hogy az entitások közötti kapcsolatot hogyan jelezzük a modellen úgy, hogy az a lehető legolvashatóbb legyen. Az első lehetőség ami szóba jött az az, hogy csak feltüntessük a kapcsolatban lévő entitás ID-ját attribútumként, a másik meg az, hogy az ER diagram szerinti kapcsolattal kössük őket össze. A végleges modell így néz ki:
 
-![](https://github.com/Movesy/movesy/blob/main/docs/datamodel.png?raw=true)
+![](https://github.com/Movesy/movesy/blob/main/docs/datamodel_old.png?raw=true)
 
 Elkezdtük összerakni az [endpointokat](https://github.com/Movesy/movesy/blob/main/docs/endpoints.txt) szövegszerkesztővel, amik közben rájöttünk, hogy nem tudjuk hogyan kellene rendesen kezelni az adminokat. Az egész bejelentkezés témakör kicsit homályos egyelőre.
 Ezekkel a célunk az volt, hogy könnyebben össze tudjuk rakni Swaggerben az [API dokumentációját](https://app.swaggerhub.com/apis/Mov/MovesyAPI/1.0.0#/). Ezzel egész sok időnk elment, mert meg kellett tanulnunk hogy hogyan működik a Swagger és hogyan kell a generáláshoz szükséges yaml filet elkészíteni. Ha a link nem elérhető vagy hibás/régi kódot mutat, akkor [itt](https://pastebin.com/jJPYBZ53) érdemes megnézni.
@@ -21,3 +21,7 @@ Peti az Angularral is elkezdett foglalkozni, ehhez a haladásinaplója [itt tal�
 # 4. hét
 
 Frissítettük az API dokumentációt, mivel az adatmodellt a megbeszéltek alapján megváltoztattuk. Arra a döntésre jutottunk, hogy egy táblában lesznek tárolva a userek is és a transporterek is és lesz egy plusz 'role' adattagjuk, így könnyebben lehet további szerepekkel bővíteni a modellt. Ezeken felül a packageknek a 'width', 'height', 'depth' helyett csak egy enum típusú 'size' adattagja lesz, ugyan így a transportereknek is, ami azt jelzi, hogy mekkora csomagot képesek elszállítani.
+A frissített adatmodell itt látható:
+
+![](https://github.com/Movesy/movesy/blob/main/docs/datamodel.png?raw=true)
+
