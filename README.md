@@ -25,3 +25,5 @@ A frissített adatmodell itt látható:
 
 ![](https://github.com/Movesy/movesy/blob/main/docs/datamodel.png?raw=true)
 
+A frissített Swaggeres API dokumentáció [itt](https://pastebin.com/Q0BdZpV8) érhető el.
+
