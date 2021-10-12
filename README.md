@@ -13,8 +13,11 @@ Megterveztük az app adatmodelljét, amihez ismét a draw.io-t használtuk. Itt 
 ![](https://github.com/Movesy/movesy/blob/main/docs/datamodel.png?raw=true)
 
 Elkezdtük összerakni az [endpointokat](https://github.com/Movesy/movesy/blob/main/docs/endpoints.txt) szövegszerkesztővel, amik közben rájöttünk, hogy nem tudjuk hogyan kellene rendesen kezelni az adminokat. Az egész bejelentkezés témakör kicsit homályos egyelőre.
-Ezekkel a célunk az volt, hogy könnyebben össze tudjuk rakni Swaggerben az [API dokumentációját](https://app.swaggerhub.com/apis/Mov/MovesyAPI/1.0.0#/). Ezzel egész sok időnk elment, mert meg kellett tanulnunk hogy hogyan működik a Swagger és hogyan kell a generáláshoz szükséges yaml filet elkészíteni. Ha a link nem elérhető vagy hibás kódot mutat, akkor [itt](https://pastebin.com/jJPYBZ53) érdemes megnézni.
+Ezekkel a célunk az volt, hogy könnyebben össze tudjuk rakni Swaggerben az [API dokumentációját](https://app.swaggerhub.com/apis/Mov/MovesyAPI/1.0.0#/). Ezzel egész sok időnk elment, mert meg kellett tanulnunk hogy hogyan működik a Swagger és hogyan kell a generáláshoz szükséges yaml filet elkészíteni. Ha a link nem elérhető vagy hibás/régi kódot mutat, akkor [itt](https://pastebin.com/jJPYBZ53) érdemes megnézni.
 
 
 Peti az Angularral is elkezdett foglalkozni, ehhez a haladásinaplója [itt található](https://github.com/Movesy/movesy-admin/blob/main/haladasinaplo.md).
 
+# 4. hét
+
+Frissítettük az API dokumentációt, mivel az adatmodellt a megbeszéltek alapján megváltoztattuk. Arra a döntésre jutottunk, hogy egy táblában lesznek tárolva a userek is és a transporterek is és lesz egy plusz 'role' adattagjuk, így könnyebben lehet további szerepekkel bővíteni a modellt. Ezeken felül a packageknek a 'width', 'height', 'depth' helyett csak egy enum típusú 'size' adattagja lesz, ugyan így a transportereknek is, ami azt jelzi, hogy mekkora csomagot képesek elszállítani.
