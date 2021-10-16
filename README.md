@@ -27,3 +27,6 @@ A frissített adatmodell itt látható:
 
 A frissített Swaggeres API dokumentáció [itt](https://pastebin.com/Q0BdZpV8) érhető el.
 
+# 5. hét
+
+[Backend haladási napló](https://github.com/Movesy/movesy-backend/blob/master/README.md)
