@@ -31,4 +31,5 @@ A frissített Swaggeres API dokumentáció [itt](https://pastebin.com/Q0BdZpV8) 
 
 # 5. hét
 
-[Backend haladási napló](https://github.com/Movesy/movesy-backend/blob/master/README.md)
+- [Backend haladási napló](https://github.com/Movesy/movesy-backend/blob/master/README.md)
+- [Mobil haladási napló](https://github.com/Movesy/movesy-mobile)
