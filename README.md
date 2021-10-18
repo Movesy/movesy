@@ -30,3 +30,5 @@ A frissített Swaggeres API dokumentáció [itt](https://pastebin.com/Q0BdZpV8) 
 - [Admin haladási napló](https://github.com/Movesy/movesy-admin/blob/main/haladasinaplo.md)
 - [Backend haladási napló](https://github.com/Movesy/movesy-backend/blob/master/README.md)
 - [Mobil haladási napló](https://github.com/Movesy/movesy-mobile)
+
+Az endpointok jelenleg [így](https://github.com/Movesy/movesy-backend/blob/master/movesy_backend-openapi.yaml) néznek ki.
